@@ -1,9 +1,9 @@
-language: generic 
+language: generic
 sudo: required
 services:
   - docker
 
-before_install: 
+before_install:
   - docker build -t docker-react -f Dockerfile.dev .
 
 script:
@@ -11,13 +11,14 @@ script:
 
 
 deploy:
- provider: elasticbeanstalk
- region: "ap-south-1"
- app: "Docker-React"
- env: "Dockerreact-env"
- bucket_name: "elasticbeanstalk-ap-south-1-037346945350"
- bucket_path: "Docker-React"
- on:
-  branch: main
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  provider: elasticbeanstalk
+  region: "ap-south-1"
+  app: "Docker-React"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-037346945350"
+  bucket_path: "Docker-React"
+  on:
+    branch: main
+  acess_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: $AWS_SECRET_KEY
